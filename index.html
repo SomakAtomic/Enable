@@ -12,7 +12,8 @@
     <style>
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #f0f4f8;
+            background-color: #f8fafc; /* slate-50 */
+            color: #1e293b; /* slate-800 */
         }
         .chart-container {
             position: relative;
@@ -20,108 +21,108 @@
             max-width: 600px;
             margin-left: auto;
             margin-right: auto;
-            height: 300px;
-            max-height: 400px;
+            height: 350px;
+            max-height: 450px;
         }
         @media (min-width: 768px) {
             .chart-container {
-                height: 350px;
+                height: 400px;
             }
         }
         .kpi-card h3 {
-            color: #d45087;
+            color: #0369a1; /* sky-700 */
         }
         .flowchart-step {
-            border-color: #665191;
+            border-color: #38bdf8; /* sky-400 */
             transition: all 0.3s ease-in-out;
         }
         .flowchart-step:hover {
             transform: translateY(-5px);
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.07), 0 4px 6px -2px rgba(0, 0, 0, 0.04);
         }
         .flowchart-arrow {
-            color: #665191;
+            color: #0369a1; /* sky-700 */
             font-size: 2.5rem;
             line-height: 1;
         }
     </style>
 </head>
-<body class="text-gray-800">
+<body class="antialiased">
 
-    <div class="max-w-6xl mx-auto p-4 sm:p-6 md:p-8">
+    <!-- Chosen Palette: Calm Harmony - A palette of Slate grays with Sky blue as a subtle, professional accent. -->
+    <!-- Application Structure Plan: A single-page, scrollable dashboard. The structure prioritizes user understanding, starting with high-level value (KPIs), moving to market context (Audience, Competition), then detailing the strategic plan (Markets, Channels, Funnel), and ending with actionable recommendations. This non-linear, thematic flow allows users to explore sections based on interest, which is more intuitive than a rigid report structure. -->
+    <!-- Visualization & Content Choices: 
+        - KPIs (Inform) -> Large Stat Cards -> HTML/CSS -> Justification: Immediately grabs attention and communicates core value.
+        - Competitor Analysis (Compare) -> Horizontal Bar Chart -> Chart.js/Canvas -> Justification: Directly contrasts Enable's strengths against competitor weaknesses, a key strategic point.
+        - G2 Review Mix (Compare) -> Donut Chart -> Chart.js/Canvas -> Justification: Simple, clear visual for showing composition/social proof.
+        - Lead Funnel (Organize/Process) -> Vertical Flowchart -> HTML/CSS -> Justification: Visually guides the user through a key process without complex libraries.
+        - Strategic Channels (Organize) -> Tabbed Interface/Grid -> HTML/CSS/JS -> Justification: Organizes a large amount of related information into digestible, interactive chunks.
+    -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+
+    <div class="max-w-7xl mx-auto p-4 sm:p-6 lg:p-8">
         
-        <header class="text-center mb-12">
-            <h1 class="text-4xl md:text-5xl font-extrabold text-[#003f5c] mb-2">Maximizing Lead Generation: A Digital Blueprint</h1>
-            <p class="text-xl text-[#2f4b7c]">A Strategic Infographic for <span class="font-bold">Enable.com</span></p>
+        <header class="text-center mb-16">
+            <h1 class="text-4xl md:text-5xl font-extrabold text-slate-900 mb-3">Maximizing Digital Marketing for Lead Generation</h1>
+            <p class="text-xl text-sky-800 font-semibold">A Strategic Blueprint for Enable.com</p>
         </header>
 
-        <section id="executive-summary" class="mb-16">
-            <h2 class="text-3xl font-bold text-center mb-8 text-[#003f5c]">Executive Summary: Unifying Pricing & Rebates</h2>
-            <p class="max-w-3xl mx-auto text-center text-lg text-gray-600 mb-10">
-                Enable.com's Rebate Management Platform, enhanced by the Flintfox acquisition, unifies complex pricing and rebate processes. Leveraging AI-powered analytics, it drives significant profitability gains, enhances visibility, and reduces administrative burdens for manufacturers, distributors, and retailers. This blueprint outlines strategies to accelerate high-quality lead acquisition and conversion.
+        <section id="kpis" class="mb-20">
+            <h2 class="text-3xl font-bold text-center mb-4 text-slate-900">The Enable.com Value Proposition</h2>
+            <p class="max-w-3xl mx-auto text-center text-lg text-slate-600 mb-10">
+                Enable.com unifies pricing and rebates with an AI-powered platform, driving significant profitability, enhancing visibility, and reducing administrative burdens for B2B clients. The results are tangible and transformative.
             </p>
-        </section>
-
-        <section id="kpis" class="mb-16">
-            <h2 class="text-3xl font-bold text-center mb-8 text-[#003f5c]">The Enable Advantage: Proven Results & Impact</h2>
-            <p class="max-w-3xl mx-auto text-center text-lg text-gray-600 mb-10">
-                Enable.com delivers substantial, measurable growth and efficiency. Our platform's AI-powered unification of pricing and rebates creates a powerful engine for profitability and operational excellence.
-            </p>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
-                <div class="bg-white p-6 rounded-lg shadow-lg kpi-card">
-                    <h3 class="text-5xl font-extrabold mb-2">400%</h3>
-                    <p class="font-semibold text-lg">Guaranteed ROI</p>
-                    <p class="text-gray-500">Over three years, delivering unmatched value.</p>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 text-center">
+                <div class="bg-white p-6 rounded-xl shadow-md kpi-card">
+                    <h3 class="text-6xl font-black mb-2">400%</h3>
+                    <p class="font-semibold text-lg text-slate-800">Guaranteed ROI</p>
+                    <p class="text-slate-500">Delivered over three years.</p>
                 </div>
-                <div class="bg-white p-6 rounded-lg shadow-lg kpi-card">
-                    <h3 class="text-5xl font-extrabold mb-2">75%</h3>
-                    <p class="font-semibold text-lg">Less Admin Time</p>
-                    <p class="text-gray-500">Reclaiming valuable hours from manual tasks.</p>
+                <div class="bg-white p-6 rounded-xl shadow-md kpi-card">
+                    <h3 class="text-6xl font-black mb-2">75%</h3>
+                    <p class="font-semibold text-lg text-slate-800">Reduction in Admin Time</p>
+                    <p class="text-slate-500">Reclaiming hours from manual tasks.</p>
                 </div>
-                <div class="bg-white p-6 rounded-lg shadow-lg kpi-card">
-                    <h3 class="text-5xl font-extrabold mb-2">98%</h3>
-                    <p class="font-semibold text-lg">Gross Retention</p>
-                    <p class="text-gray-500">Demonstrating exceptional customer satisfaction.</p>
+                <div class="bg-white p-6 rounded-xl shadow-md kpi-card">
+                    <h3 class="text-6xl font-black mb-2">98%</h3>
+                    <p class="font-semibold text-lg text-slate-800">Gross Retention Rate</p>
+                    <p class="text-slate-500">Proving exceptional customer loyalty.</p>
                 </div>
             </div>
         </section>
 
-        <section id="market-landscape" class="mb-16">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-                <div class="bg-white p-6 rounded-lg shadow-lg">
-                    <h2 class="text-3xl font-bold text-center mb-6 text-[#003f5c]">Targeting with Precision: Audience & Industries</h2>
-                    <p class="text-center text-gray-600 mb-6">Our strategy focuses on industries and roles that benefit most from sophisticated rebate management solutions, adopting a multi-persona targeting approach.</p>
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                        <div>
-                            <h3 class="font-bold text-lg mb-2 text-[#665191]">Key Industries</h3>
-                            <ul class="space-y-2 text-gray-700">
-                                <li class="flex items-center"><span class="mr-2">🏭</span> Manufacturing</li>
-                                <li class="flex items-center"><span class="mr-2">🚚</span> Wholesale Distribution</li>
-                                <li class="flex items-center"><span class="mr-2">🛒</span> Retail & Buying Groups</li>
-                                <li class="flex items-center"><span class="mr-2">🔧</span> Construction & Electrical</li>
-                                <li class="flex items-center"><span class="mr-2">💊</span> Pharmaceutical</li>
-                                <li class="flex items-center"><span class="mr-2">🚗</span> Automotive Parts</li>
-                                <li class="flex items-center"><span class="mr-2">🚿</span> Plumbing & HVAC</li>
-                                <li class="flex items-center"><span class="mr-2">🍎</span> Groceries & Catering</li>
-                            </ul>
+        <section id="market-landscape" class="mb-20">
+            <h2 class="text-3xl font-bold text-center mb-12 text-slate-900">Understanding the Market Landscape</h2>
+            <div class="grid grid-cols-1 lg:grid-cols-5 gap-8">
+                <div class="lg:col-span-2 bg-white p-6 rounded-xl shadow-md">
+                    <h3 class="text-2xl font-bold text-center mb-6 text-sky-800">Target Audience & Industries</h3>
+                    <p class="text-center text-slate-600 mb-8">Our strategy focuses on industries and roles that benefit most from sophisticated rebate management, requiring a multi-persona approach.</p>
+                    <div>
+                        <h4 class="font-bold text-lg mb-3 text-slate-700">Key Industries Served</h4>
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <span class="bg-sky-100 text-sky-800 text-sm font-medium px-2.5 py-0.5 rounded-full">Manufacturing</span>
+                            <span class="bg-sky-100 text-sky-800 text-sm font-medium px-2.5 py-0.5 rounded-full">Distribution</span>
+                            <span class="bg-sky-100 text-sky-800 text-sm font-medium px-2.5 py-0.5 rounded-full">Retail</span>
+                            <span class="bg-sky-100 text-sky-800 text-sm font-medium px-2.5 py-0.5 rounded-full">Buying Groups</span>
+                            <span class="bg-sky-100 text-sky-800 text-sm font-medium px-2.5 py-0.5 rounded-full">Construction</span>
+                            <span class="bg-sky-100 text-sky-800 text-sm font-medium px-2.5 py-0.5 rounded-full">Pharma</span>
                         </div>
-                        <div>
-                            <h3 class="font-bold text-lg mb-2 text-[#665191]">Key Job Roles</h3>
-                            <ul class="space-y-2 text-gray-700">
-                                <li class="flex items-center"><span class="mr-2">💼</span> C-Suite Executives</li>
-                                <li class="flex items-center"><span class="mr-2">💰</span> Finance Professionals</li>
-                                <li class="flex items-center"><span class="mr-2">🖥️</span> IT & Compliance</li>
-                                <li class="flex items-center"><span class="mr-2">📦</span> Procurement Managers</li>
-                                <li class="flex items-center"><span class="mr-2">📈</span> Sales & Marketing</li>
-                                <li class="flex items-center"><span class="mr-2">📊</span> Rebate & Category Managers</li>
-                            </ul>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-lg mb-3 text-slate-700">Key Job Roles Targeted</h4>
+                         <div class="flex flex-wrap gap-2">
+                            <span class="bg-slate-200 text-slate-800 text-sm font-medium px-2.5 py-0.5 rounded-full">C-Suite</span>
+                            <span class="bg-slate-200 text-slate-800 text-sm font-medium px-2.5 py-0.5 rounded-full">Finance</span>
+                            <span class="bg-slate-200 text-slate-800 text-sm font-medium px-2.5 py-0.5 rounded-full">Procurement</span>
+                            <span class="bg-slate-200 text-slate-800 text-sm font-medium px-2.5 py-0.5 rounded-full">Sales & Marketing</span>
+                            <span class="bg-slate-200 text-slate-800 text-sm font-medium px-2.5 py-0.5 rounded-full">Rebate Managers</span>
                         </div>
                     </div>
                 </div>
 
-                <div class="bg-white p-6 rounded-lg shadow-lg">
-                    <h2 class="text-3xl font-bold text-center mb-4 text-[#003f5c]">Competitive Edge: Solving Industry Pain Points</h2>
-                     <p class="text-center text-gray-600 mb-6">Enable stands out by directly addressing common competitor pain points. While competitors (Vistex, Pricefx, PROS, incentX) often struggle with complexity, learning curves, and performance, Enable emphasizes user-friendliness, robust support, and high user adoption, which are critical differentiators in the market.</p>
+                <div class="lg:col-span-3 bg-white p-6 rounded-xl shadow-md">
+                    <h3 class="text-2xl font-bold text-center mb-2 text-sky-800">The Competitive Edge</h3>
+                     <p class="text-center text-slate-600 mb-6 max-w-2xl mx-auto">Enable contrasts sharply with competitors (Vistex, Pricefx, PROS) by solving common industry pain points like complexity and poor support. Our marketing must leverage our proven strengths in user-friendliness and customer service.</p>
                     <div class="chart-container">
                         <canvas id="competitiveEdgeChart"></canvas>
                     </div>
@@ -129,283 +130,160 @@
             </div>
         </section>
 
-        <section id="key-markets" class="mb-16">
-            <h2 class="text-3xl font-bold text-center mb-8 text-[#003f5c]">Identifying Key Markets for Lead Generation</h2>
-            <p class="max-w-3xl mx-auto text-center text-lg text-gray-600 mb-10">
-                Our lead generation strategy targets regions and industries where the need for sophisticated rebate management is most pronounced, leveraging both established and emerging markets.
-            </p>
+        <section id="key-markets" class="mb-20">
+            <h2 class="text-3xl font-bold text-center mb-12 text-slate-900">Identifying Key Markets for Growth</h2>
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                <div class="bg-white p-6 rounded-lg shadow-lg">
-                    <h3 class="text-2xl font-bold mb-4 text-[#a05195]">Geographic Market Opportunities</h3>
-                    <ul class="list-disc list-inside text-gray-700 space-y-2">
-                        <li>**Dominant Regions:** North America and Europe hold significant market share due to early tech adoption and large enterprises with complex rebate programs. Messaging should emphasize "advanced technologies" for sophisticated requirements.</li>
-                        <li>**Emerging Growth:** Asia-Pacific (China, India) is poised for accelerated growth due to rapid economic expansion. Messaging should highlight "cost-effective and efficient" solutions.</li>
-                        <li>**Global Footprint:** Enable has existing offices in USA, Canada, UK, and Australia, providing a strategic advantage for market penetration.</li>
-                        <li>**Localized Platforms:** Explore Xing (Germany), Baidu/WeChat (China), Yandex (Russia) for localized paid search and content.</li>
+                <div class="bg-white p-8 rounded-xl shadow-md">
+                    <h3 class="text-2xl font-bold mb-4 text-sky-800">Geographic Opportunities</h3>
+                    <p class="text-slate-600 mb-6">Our strategy involves defending mature markets while aggressively pursuing emerging ones, leveraging our global office footprint.</p>
+                    <ul class="space-y-4">
+                        <li class="flex items-start">
+                            <span class="text-2xl mr-4">🌎</span>
+                            <div>
+                                <h4 class="font-bold text-slate-800">North America & Europe</h4>
+                                <p class="text-slate-500">Dominant, mature markets. Emphasize "advanced technology" for complex enterprise needs.</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-2xl mr-4">🌏</span>
+                             <div>
+                                <h4 class="font-bold text-slate-800">Asia-Pacific (APAC)</h4>
+                                <p class="text-slate-500">Accelerated growth potential. Highlight "cost-effective and efficient" solutions.</p>
+                            </div>
+                        </li>
                     </ul>
                 </div>
-                <div class="bg-white p-6 rounded-lg shadow-lg">
-                    <h3 class="text-2xl font-bold mb-4 text-[#a05195]">Industry Prioritization & Verticalization</h3>
-                    <ul class="list-disc list-inside text-gray-700 space-y-2">
-                        <li>**High Potential Industries:** Wholesale Distribution, Manufacturing, Buying Groups, Retailers, Construction, Electrical, Automotive Parts, Pharmaceutical, Plumbing & HVAC, Groceries & Catering.</li>
-                        <li>**Complex Pain Points:** Prioritize industries with inherently complex rebate programs and significant manual overhead.</li>
-                        <li>**Verticalized Content:** Create highly tailored content (case studies, webinars, blogs) addressing specific industry challenges (e.g., "How Construction Companies Optimize Rebates").</li>
-                        <li>**AI & Unified Platform:** Position Enable's AI and unified pricing/rebate platform as direct solutions to industry-specific complexities.</li>
+                <div class="bg-white p-8 rounded-xl shadow-md">
+                    <h3 class="text-2xl font-bold mb-4 text-sky-800">Target Account Identification (ABM)</h3>
+                    <p class="text-slate-600 mb-6">Effective lead generation requires a highly focused Account-Based Marketing strategy using multiple data signals.</p>
+                     <ul class="space-y-4">
+                        <li class="flex items-start">
+                             <span class="text-2xl mr-4">📊</span>
+                            <div>
+                                <h4 class="font-bold text-slate-800">Data-Driven Targeting</h4>
+                                <p class="text-slate-500">Combine Firmographic, Technographic (e.g., SAP/Oracle users), and Intent data to identify active, in-market accounts.</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                             <span class="text-2xl mr-4">🎯</span>
+                            <div>
+                                <h4 class="font-bold text-slate-800">Competitive Intelligence</h4>
+                                <p class="text-slate-500">Monitor competitor engagement to find companies with a clear, existing need for rebate management solutions.</p>
+                            </div>
+                        </li>
                     </ul>
                 </div>
-            </div>
-            <div class="bg-white p-6 rounded-lg shadow-lg mt-8">
-                <h3 class="text-2xl font-bold text-center mb-4 text-[#003f5c]">Target Account Identification Strategies (ABM Focus)</h3>
-                <p class="text-center text-gray-600 mb-4">Effective lead generation for high-value accounts requires a precise, multi-faceted approach leveraging various data points and analytical tools for Account-Based Marketing (ABM).</p>
-                <ul class="list-disc list-inside text-gray-700 space-y-2">
-                    <li>**Ideal Customer Profiles (ICPs) & Buyer Personas:** Develop detailed profiles to pinpoint high-value accounts.</li>
-                    <li>**Intent Data Utilization:** Identify accounts actively researching rebate/pricing solutions (e.g., from G2, web behavior).</li>
-                    <li>**Firmographic Data Segmentation:** Segment by industry, company size, and revenue to align with target business types.</li>
-                    <li>**Technographic Data Analysis:** Target companies using compatible ERP systems (SAP, Oracle, Microsoft Dynamics).</li>
-                    <li>**Competitive Intelligence Monitoring:** Identify companies engaging with competitors (Vistex, Pricefx, PROS) as they have a clear existing need.</li>
-                    <li>**ABM Tools & Investment:** Leverage advanced ABM platforms to focus resources on the accounts most likely to convert with hyper-personalized campaigns.</li>
-                </ul>
             </div>
         </section>
-
-        <section id="media-channels" class="mb-16">
-            <h2 class="text-3xl font-bold text-center mb-8 text-[#003f5c]">Strategic Media & Publisher Channels: Maximize Reach & Engagement</h2>
-            <p class="max-w-3xl mx-auto text-center text-lg text-gray-600 mb-10">
-                A multi-channel approach is key to reaching our target audience at every stage of the funnel, employing a blend of paid, owned, and earned media.
-            </p>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div class="bg-white p-6 rounded-lg shadow-lg">
-                    <h3 class="text-2xl font-bold mb-4 text-[#a05195]">Digital Advertising Channels</h3>
-                    <ul class="list-disc list-inside text-gray-700 space-y-2">
-                        <li>**Paid Search (Google Ads, Bing Ads):** Capture high-intent searchers ("rebate management software"), use ad extensions, bid boosting for ABM accounts.</li>
-                        <li>**Paid Social (LinkedIn Ads):** Critical for B2B; target by job title/industry, use Sponsored Content, Message Ads, Lead Gen Forms.</li>
-                        <li>**Paid Social (Facebook Ads):** Broad reach for B2B brand awareness, effective for retargeting and community building.</li>
-                        <li>**Programmatic Advertising:** Efficiently buy/display ads to highly specific business audiences via DSPs (Influ2, Rollworks).</li>
-                        <li>**Video Advertising (YouTube):** Engage with explainer videos, product demos, client testimonials (Enable's channel has 1k+ subs, 300+ videos).</li>
-                    </ul>
-                </div>
-                <div class="bg-white p-6 rounded-lg shadow-lg">
-                    <h3 class="text-2xl font-bold mb-4 text-[#a05195]">Content Marketing & Syndication</h3>
-                    <ul class="list-disc list-inside text-gray-700 space-y-2">
-                        <li>**Owned Media (Blog, Webinars, Reports):** Leverage Enable's rich library (Pricing, Supply Chain, AI, "State of Volume Rebates").</li>
-                        <li>**Earned & Paid Syndication:** Expand reach, build trust, drive referral traffic via platforms like Outbrain, Taboola, Pipeline360, Medium, LinkedIn.</li>
-                        <li>**Content as Central Engine:** Invest in long-form, data-driven content & dynamic video, mapped to buyer journey stages.</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="bg-white p-6 rounded-lg shadow-lg mt-8">
-                <h3 class="text-2xl font-bold text-center mb-4 text-[#003f5c]">Review & Listing Sites: Beyond G2 & Capterra</h3>
-                <p class="text-center text-gray-600 mb-4">While G2 and Capterra are foundational, expanding our presence across additional B2B software review platforms provides further social proof and reach.</p>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    <div>
-                        <h4 class="font-bold text-lg mb-2 text-[#ff7c43]">Key Platforms</h4>
-                        <ul class="list-disc list-inside text-gray-700 space-y-1">
-                            <li>SourceForge</li>
-                            <li>Slashdot</li>
-                            <li>TopBusinessSoftware.com</li>
-                            <li>TrustRadius</li>
-                            <li>GetApp</li>
-                            <li>Software Advice</li>
-                            <li>Trustpilot (B2B section)</li>
-                            <li>Geekflare</li>
-                        </ul>
-                    </div>
-                    <div class="md:col-span-2">
-                        <h4 class="font-bold text-lg mb-2 text-[#ff7c43]">Leveraging Paid Plans for Reach & Leads</h4>
-                        <ul class="list-disc list-inside text-gray-700 space-y-1">
-                            <li>**SourceForge/Slashdot:** Plans from $415/month for promotions, review generation, higher visibility, intent data, retargeting.</li>
-                            <li>**TopBusinessSoftware.com:** Fixed-price listings for consistent visibility.</li>
-                            <li>**TrustRadius:** Paid programs (e.g., ~$30k/year) for verified reviews, data analysis, brand preference, demand/lead generation, ABM intent data.</li>
-                            <li>**GetApp/Software Advice:** Sponsored listings for visibility, pay-per-lead programs for qualified leads, free review collection.</li>
-                            <li>**Trustpilot:** Plans to invite reviews, engage feedback, accelerate conversions, customize social proof ads/widgets.</li>
-                            <li>**Geekflare:** Advertising opportunities via affiliate marketing programs.</li>
-                        </ul>
-                        <p class="text-gray-600 text-sm mt-2">Investing in these paid programs offers higher visibility, access to buyer intent data, streamlined review generation, and direct targeting of in-market buyers.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="bg-white p-6 rounded-lg shadow-lg mt-8">
-                <h3 class="text-2xl font-bold text-center mb-4 text-[#003f5c]">Industry-Specific Media & Communities</h3>
-                <ul class="list-disc list-inside text-gray-700 space-y-2">
-                    <li>**Trade Publications:** Engage with key publications for Manufacturing, Distribution, Automotive, Construction, Electrical, Plumbing & HVAC, Pharmaceutical, Groceries & Catering (e.g., *Manufacturing.net*, *Supply Chain Management Review*, *PharmaTimes*).</li>
-                    <li>**Online Professional Communities:** Actively participate in platforms like Procurious (Procurement) and leverage B2B-focused social media for Finance professionals.</li>
-                    <li>**B2B Influencer Marketing:** Partner with industry experts to co-create content (webinars, whitepapers, podcasts) to build credibility and generate warm leads.</li>
-                    <li>**Hyper-Targeting:** Develop tailored content and outreach for each key industry vertical.</li>
-                </ul>
-            </div>
-        </section>
-
-        <section id="performance-optimization" class="mb-16">
-            <h2 class="text-3xl font-bold text-center mb-8 text-[#003f5c]">Optimizing Funnel Performance: Addressing Key Challenges</h2>
-            <p class="max-w-3xl mx-auto text-center text-lg text-gray-600 mb-10">
-                While marketing contributions have grown, increased costs per lead/opportunity and declining conversion rates highlight areas for strategic optimization.
-            </p>
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-                <div class="bg-white p-6 rounded-lg shadow-lg">
-                    <h3 class="text-2xl font-bold text-center mb-4 text-[#a05195]">Cost per Lead & Opportunity Trend</h3>
-                    <p class="text-center text-gray-600 mb-4">Cost metrics have significantly increased from FY24 to FY26 Q1, necessitating granular campaign analysis and refined targeting.</p>
-                    <div class="chart-container">
-                        <canvas id="costMetricsChart"></canvas>
-                    </div>
-                </div>
-                <div class="bg-white p-6 rounded-lg shadow-lg">
-                    <h3 class="text-2xl font-bold text-center mb-4 text-[#a05195]">Conversion Rate Evolution</h3>
-                    <p class="text-center text-gray-600 mb-4">Conversion rates from MQL to SAL show general decline, pointing to opportunities for improved lead qualification and personalized nurturing.</p>
-                    <div class="chart-container">
-                        <canvas id="conversionRatesChart"></canvas>
-                    </div>
-                </div>
-            </div>
-            <div class="bg-white p-6 rounded-lg shadow-lg mt-8">
-                <h3 class="text-2xl font-bold text-center mb-4 text-[#003f5c]">Strategic Cost Optimization & Conversion Enhancement</h3>
-                <ul class="list-disc list-inside text-gray-700 space-y-2">
-                    <li>**Granular Campaign Analysis:** Audit high-spend, low-conversion campaigns.</li>
-                    <li>**Refined Targeting:** Leverage advanced platform capabilities for precision reach.</li>
-                    <li>**Lead Qualification Alignment:** Re-evaluate MQL definition with sales, implement stricter scoring.</li>
-                    <li>**Personalized Nurturing Journeys:** Tailor content and delivery to each funnel stage.</li>
-                    <li>**Streamlined Sales Handoff:** Establish clear SLAs and integrate CRM/MAP for comprehensive lead intelligence.</li>
-                </ul>
-            </div>
-        </section>
-
-        <section id="funnel" class="mb-16">
-            <h2 class="text-3xl font-bold text-center mb-2 text-[#003f5c]">Strategic Lead Funnel Blueprint: Guiding the Buyer's Journey</h2>
-            <p class="max-w-3xl mx-auto text-center text-lg text-gray-600 mb-10">
-                Our strategy meticulously maps content and channels to each stage of the B2B buyer's journey, guiding prospects seamlessly from initial awareness to loyal advocacy.
+        
+        <section id="funnel" class="mb-20">
+            <h2 class="text-3xl font-bold text-center mb-4 text-slate-900">Building a Robust B2B Lead Funnel</h2>
+            <p class="max-w-3xl mx-auto text-center text-lg text-slate-600 mb-12">
+                Our strategy maps specific content and channels to each stage of the buyer's journey, guiding prospects from initial awareness to loyal advocates.
             </p>
             <div class="space-y-8">
-                <div class="bg-white p-6 rounded-lg shadow-lg flowchart-step border-l-4">
-                    <h3 class="font-bold text-xl text-[#a05195]">1. Awareness (TOFU)</h3>
-                    <p class="text-gray-600 mt-1"><strong class="text-gray-800">Goal:</strong> Attract broad audience, build brand awareness & trust.</p>
-                    <p class="text-gray-600 mt-2"><strong class="text-gray-800">Content:</strong> Informational Blog Posts, Industry Reports, Infographics, Social Media, Podcasts. <br><strong class="text-gray-800">Channels:</strong> SEO, LinkedIn Ads, Google Display.</p>
+                <div class="bg-white p-6 rounded-lg shadow-md flowchart-step border-l-4">
+                    <h3 class="font-bold text-xl text-sky-700">1. Awareness (Top of Funnel)</h3>
+                    <p class="text-slate-600 mt-1"><strong class="text-slate-800">Goal:</strong> Attract a broad audience and introduce Enable's value proposition.</p>
+                    <p class="text-slate-600 mt-2"><strong class="text-slate-800">Content:</strong> Informational Blogs, Industry Reports, Infographics, Podcasts.</p>
                 </div>
                 <div class="text-center flowchart-arrow">↓</div>
-                <div class="bg-white p-6 rounded-lg shadow-lg flowchart-step border-l-4">
-                    <h3 class="font-bold text-xl text-[#d45087]">2. Interest & Consideration (MOFU)</h3>
-                    <p class="text-gray-600 mt-1"><strong class="text-gray-800">Goal:</strong> Educate prospects, showcase expertise, deepen engagement.</p>
-                    <p class="text-gray-600 mt-2"><strong class="text-gray-800">Content:</strong> eBooks, Whitepapers, Webinars, Case Studies, ROI Calculators. <br><strong class="text-gray-800">Channels:</strong> Email Nurturing, Retargeting Ads, Content Syndication.</p>
+                <div class="bg-white p-6 rounded-lg shadow-md flowchart-step border-l-4">
+                    <h3 class="font-bold text-xl text-sky-700">2. Interest & Consideration (Middle of Funnel)</h3>
+                    <p class="text-slate-600 mt-1"><strong class="text-slate-800">Goal:</strong> Educate prospects, showcase expertise, and demonstrate the solution's fit.</p>
+                    <p class="text-slate-600 mt-2"><strong class="text-slate-800">Content:</strong> eBooks, Whitepapers, Webinars, Case Studies, ROI Calculators.</p>
                 </div>
                 <div class="text-center flowchart-arrow">↓</div>
-                <div class="bg-white p-6 rounded-lg shadow-lg flowchart-step border-l-4">
-                    <h3 class="font-bold text-xl text-[#f95d6a]">3. Intent & Evaluation (BOFU)</h3>
-                    <p class="text-gray-600 mt-1"><strong class="text-gray-800">Goal:</strong> Convert prospects to qualified leads, facilitate decision-making.</p>
-                    <p class="text-gray-600 mt-2"><strong class="text-gray-800">Content:</b> Personalized Demos, Free Trials, Detailed Pricing, Comparison Guides, Analyst Reports. <br><strong class="text-gray-800">Channels:</strong> Google Search Ads, G2/Capterra, Direct Outreach.</p>
+                <div class="bg-white p-6 rounded-lg shadow-md flowchart-step border-l-4">
+                    <h3 class="font-bold text-xl text-sky-700">3. Intent & Evaluation (Bottom of Funnel)</h3>
+                    <p class="text-slate-600 mt-1"><strong class="text-slate-800">Goal:</strong> Convert prospects into qualified leads ready for sales engagement.</p>
+                    <p class="text-slate-600 mt-2"><strong class="text-slate-800">Content:</strong> Personalized Demos, Free Trials, Detailed Pricing, Comparison Guides.</p>
                 </div>
                  <div class="text-center flowchart-arrow">↓</div>
-                <div class="bg-white p-6 rounded-lg shadow-lg flowchart-step border-l-4">
-                    <h3 class="font-bold text-xl text-[#ff7c43]">4. Purchase & Retention (Post-Funnel)</h3>
-                    <p class="text-gray-600 mt-1"><strong class="text-gray-800">Goal:</strong> Ensure customer success, build loyalty & advocacy.</p>
-                    <p class="text-gray-600 mt-2"><strong class="text-gray-800">Content:</strong> Onboarding Plans, Customer Support, Community Access, Referral Programs. <br><strong class="text-gray-800">Channels:</strong> Customer Success, Community Platform.</p>
+                <div class="bg-white p-6 rounded-lg shadow-md flowchart-step border-l-4">
+                    <h3 class="font-bold text-xl text-sky-700">4. Purchase & Retention (Post-Funnel)</h3>
+                    <p class="text-slate-600 mt-1"><strong class="text-slate-800">Goal:</strong> Ensure customer success, build loyalty, and cultivate brand advocates.</p>
+                    <p class="text-slate-600 mt-2"><strong class="text-slate-800">Content:</strong> Onboarding Plans, Customer Support, Community Access, Loyalty & Referral Programs.</p>
                 </div>
             </div>
         </section>
 
-        <section id="key-initiatives" class="mb-16">
-            <h2 class="text-3xl font-bold text-center mb-8 text-[#003f5c]">Key Strategic Initiatives for Accelerated Growth</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div class="bg-white p-6 rounded-lg shadow-lg">
-                    <h3 class="text-2xl font-bold mb-4 text-[#665191]">Maximize Campaign & Channel Effectiveness</h3>
-                    <ul class="list-disc list-inside text-gray-700 space-y-2">
-                        <li>**Optimize High-Intent Conversion Paths:** A/B test Demo Request & Free Trial pages, reduce friction.</li>
-                        <li>**Interactive Product Experiences:** Expand use of interactive demos and virtual tours.</li>
-                        <li>**Strategic Event Evolution:** Pivot to "Elevate"-style roadshow model for higher ROI & lower CPA.</li>
-                        <li>**Amplify Owned Content:** Aggressively promote high-value content via paid social, email, syndication.</li>
-                        <li>**Content Repurposing:** Atomize core assets into diverse formats (blogs, infographics, videos, quizzes).</li>
+        <section id="channels-social-proof" class="mb-20">
+             <h2 class="text-3xl font-bold text-center mb-12 text-slate-900">Strategic Channels & The Power of Social Proof</h2>
+             <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
+                 <div class="bg-white p-8 rounded-xl shadow-md">
+                    <h3 class="text-2xl font-bold text-center mb-6 text-sky-800">Key Media & Publisher Channels</h3>
+                    <ul class="space-y-4">
+                        <li class="flex items-start">
+                            <span class="text-2xl mr-4">🔗</span>
+                            <div>
+                                <h4 class="font-bold text-slate-800">LinkedIn & Paid Social</h4>
+                                <p class="text-slate-500">Precision targeting for ABM, lead gen, and brand awareness.</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                             <span class="text-2xl mr-4">🔍</span>
+                            <div>
+                                <h4 class="font-bold text-slate-800">Paid Search & SEO</h4>
+                                <p class="text-slate-500">Capture high-intent prospects and build long-term organic authority.</p>
+                            </div>
+                        </li>
+                         <li class="flex items-start">
+                             <span class="text-2xl mr-4">📰</span>
+                            <div>
+                                <h4 class="font-bold text-slate-800">Industry Trade Publications & Content Syndication</h4>
+                                <p class="text-slate-500">Amplify reach on niche platforms where target personas seek information.</p>
+                            </div>
+                        </li>
                     </ul>
                 </div>
-                <div class="bg-white p-6 rounded-lg shadow-lg">
-                    <h3 class="text-2xl font-bold mb-4 text-[#665191]">Leveraging Community & Referrals</h3>
-                    <ul class="list-disc list-inside text-gray-700 space-y-2">
-                        <li>**Deepen Community-Sales Integration:** Share community insights with sales for relevant outreach.</li>
-                        <li>**Formalized Referral Programs:** Implement multi-tiered incentives (monetary, VIP access, charitable donations).</li>
-                        <li>**Strategic Referral Timing:** Request referrals when customer enthusiasm is highest.</li>
-                        <li>**Intro Bounty Boards:** Proactively incentivize network connections for warm introductions to target accounts.</li>
-                    </ul>
-                </div>
-                <div class="bg-white p-6 rounded-lg shadow-lg">
-                    <h3 class="text-2xl font-bold mb-4 text-[#665191]">Competitive Differentiation & Market Expansion</h3>
-                    <ul class="list-disc list-inside text-gray-700 space-y-2">
-                        <li>**Aggressive Differentiated Messaging:** Explicitly highlight Enable's ease of use and superior support vs. competitors.</li>
-                        <li>**Showcase AI Advantage:** Promote AI as a core differentiator for faster decisions & better results.</li>
-                        <li>**Expand Review Site Presence:** Actively manage reviews on SourceForge, TrustRadius, GetApp, Software Advice, etc.</li>
-                        <li>**Targeted Industry Engagement:** Participate/sponsor discussions in niche trade publications & communities.</li>
-                        <li>**B2B Influencer Marketing:** Partner with industry experts for co-created content & warm leads.</li>
-                    </ul>
-                </div>
-                <div class="bg-white p-6 rounded-lg shadow-lg">
-                    <h3 class="text-2xl font-bold mb-4 text-[#665191]">Enhancing Technology & Analytics</h3>
-                    <ul class="list-disc list-inside text-gray-700 space-y-2">
-                        <li>**Advanced Attribution Modeling:** Implement multi-touch attribution for clear ROI understanding.</li>
-                        <li>**Leverage AI for Predictive Insights:** Utilize AI in CRM/MAP for intelligent lead scoring & forecasting.</li>
-                        <li>**Continuous Data Quality:** Ensure accurate lead/account data for effective ABM & personalization.</li>
-                        <li>**Seamless CRM-MAP Integration:** Establish robust bidirectional data flow for unified customer view.</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-
-        <section id="social-proof" class="mb-16">
-            <h2 class="text-3xl font-bold text-center mb-8 text-[#003f5c]">Social Proof: The Voice of Our Customers</h2>
-            <p class="max-w-3xl mx-auto text-center text-lg text-gray-600 mb-10">
-                Enable's outstanding G2 ratings and user reviews are powerful trust signals, significantly influencing purchasing decisions and accelerating the buyer's journey.
-            </p>
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-                <div class="bg-white p-6 rounded-lg shadow-lg">
-                    <h3 class="text-2xl font-bold text-center mb-4 text-[#a05195]">G2 Review Distribution</h3>
-                    <p class="text-center text-gray-600 mb-4">A vast majority of our users award Enable 4 and 5 stars, reflecting high satisfaction and product efficacy.</p>
+                <div class="bg-white p-8 rounded-xl shadow-md">
+                    <h3 class="text-2xl font-bold text-center mb-2 text-sky-800">Partnerships: Review & Listing Sites</h3>
+                    <p class="text-center text-slate-600 mb-6">Expand beyond G2 and Capterra to platforms like SourceForge, TrustRadius, and GetApp. Leverage their paid plans for higher visibility, buyer intent data, and targeted lead generation.</p>
                     <div class="chart-container">
                         <canvas id="g2ReviewsChart"></canvas>
                     </div>
                 </div>
-                <div class="bg-white p-6 rounded-lg shadow-lg">
-                    <h3 class="text-2xl font-bold text-center mb-4 text-[#a05195]">Top 5 Pros from G2 Reviews</h3>
-                    <ul class="list-disc list-inside text-gray-700 space-y-2">
-                        <li>Ease of Use</li>
-                        <li>Customer Support</li>
-                        <li>Automation</li>
-                        <li>Navigation Ease</li>
-                        <li>User Interface</li>
-                    </ul>
-                    <h3 class="text-2xl font-bold text-center mt-6 mb-4 text-[#a05195]">Top 5 Cons from G2 Reviews</h3>
-                    <ul class="list-disc list-inside text-gray-700 space-y-2">
-                        <li>Custom Reporting</li>
-                        <li>Not Intuitive</li>
-                        <li>Access Restrictions</li>
-                        <li>Data Duplication</li>
-                        <li>Difficult Implementation</li>
-                    </ul>
+             </div>
+        </section>
+
+        <section id="recommendations" class="mb-12">
+            <h2 class="text-3xl font-bold text-center mb-12 text-slate-900">Actionable Recommendations for Growth</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="bg-sky-50 p-6 rounded-lg border border-sky-200">
+                    <h4 class="font-bold text-lg text-sky-900 mb-2">Amplify AI & Interactive Demos</h4>
+                    <p class="text-slate-600">Prominently feature AI as a core differentiator. Use interactive demos and virtual tours to let prospects experience the platform's intelligence firsthand.</p>
+                </div>
+                <div class="bg-sky-50 p-6 rounded-lg border border-sky-200">
+                    <h4 class="font-bold text-lg text-sky-900 mb-2">Deepen Industry Verticalization</h4>
+                    <p class="text-slate-600">Create highly tailored content and campaigns for each key vertical (Manufacturing, Distribution, etc.), addressing specific industry pain points.</p>
+                </div>
+                 <div class="bg-sky-50 p-6 rounded-lg border border-sky-200">
+                    <h4 class="font-bold text-lg text-sky-900 mb-2">Prioritize Account-Based Marketing (ABM)</h4>
+                    <p class="text-slate-600">Focus resources on high-potential accounts identified via intent and firmographic data. Invest in ABM platforms for hyper-personalization.</p>
+                </div>
+                 <div class="bg-sky-50 p-6 rounded-lg border border-sky-200">
+                    <h4 class="font-bold text-lg text-sky-900 mb-2">Formalize Referral Programs</h4>
+                    <p class="text-slate-600">Capitalize on the 98% retention rate. Launch a multi-tiered referral program with clear incentives for customers, partners, and investors.</p>
+                </div>
+                 <div class="bg-sky-50 p-6 rounded-lg border border-sky-200">
+                    <h4 class="font-bold text-lg text-sky-900 mb-2">Leverage Social Proof Extensively</h4>
+                    <p class="text-slate-600">Actively promote strong G2/Capterra ratings across all marketing touchpoints to build trust and reduce perceived risk for prospects.</p>
+                </div>
+                 <div class="bg-sky-50 p-6 rounded-lg border border-sky-200">
+                    <h4 class="font-bold text-lg text-sky-900 mb-2">Optimize with Granular Analytics</h4>
+                    <p class="text-slate-600">Implement a robust analytics framework to track KPIs like MQLs, SQLs, and pipeline contribution, ensuring continuous, data-driven optimization.</p>
                 </div>
             </div>
         </section>
 
-        <footer class="text-center mt-12 pt-8 border-t border-gray-300">
-            <p class="text-lg text-[#003f5c]">By systematically implementing these data-driven recommendations, Enable.com can significantly enhance its digital marketing efforts, leading to a substantial increase in high-quality lead generation and accelerated revenue growth.</p>
+        <footer class="text-center mt-20 pt-8 border-t border-slate-200">
+            <p class="text-slate-500">This interactive blueprint provides a data-driven path for Enable.com to accelerate lead generation and solidify its market leadership.</p>
         </footer>
 
     </div>
 
     <script>
-        function wrapText(text, maxChars) {
-            if (typeof text !== 'string' || text.length <= maxChars) {
-                return text;
-            }
-            const words = text.split(' ');
-            const lines = [];
-            let currentLine = '';
-            words.forEach(word => {
-                if ((currentLine + ' ' + word).trim().length > maxChars && currentLine.length > 0) {
-                    lines.push(currentLine.trim());
-                    currentLine = word;
-                } else {
-                    currentLine = (currentLine + ' ' + word).trim();
-                }
-            });
-            if (currentLine) {
-                lines.push(currentLine.trim());
-            }
-            return lines;
-        }
-
         const tooltipTitleCallback = (tooltipItems) => {
             const item = tooltipItems[0];
             let label = item.chart.data.labels[item.dataIndex];
@@ -423,38 +301,49 @@
                     position: 'bottom',
                      labels: {
                         font: {
-                            size: 12,
-                            family: 'Inter'
+                            size: 14,
+                            family: 'Inter',
+                            weight: '600'
                         },
-                        color: '#4A5568'
+                        color: '#334155' // slate-700
                     }
                 },
                 tooltip: {
+                    enabled: true,
+                    backgroundColor: '#0f172a', // slate-900
+                    titleColor: '#f1f5f9', // slate-100
+                    bodyColor: '#cbd5e1', // slate-300
                     callbacks: {
                         title: tooltipTitleCallback
                     },
                     bodyFont: {
-                        family: 'Inter'
+                        family: 'Inter',
+                        size: 12
                     },
                     titleFont: {
-                        family: 'Inter'
-                    }
+                        family: 'Inter',
+                        size: 14,
+                        weight: 'bold'
+                    },
+                    padding: 12,
+                    cornerRadius: 8,
+                    boxPadding: 4,
                 }
             },
             scales: {
                 y: {
                     beginAtZero: true,
                     ticks: {
-                       color: '#4A5568',
+                       color: '#475569', // slate-600
                         font: { family: 'Inter' }
                     },
                     grid: {
-                        color: '#E2E8F0'
+                        color: '#e2e8f0' // slate-200
                     }
                 },
                 x: {
                    ticks: {
-                        color: '#4A5568',
+                        color: '#475569', // slate-600
                         font: { family: 'Inter' }
                     },
                     grid: {
@@ -465,40 +354,70 @@
         };
 
         const competitiveEdgeCtx = document.getElementById('competitiveEdgeChart').getContext('2d');
-        const competitiveEdgeData = {
-            labels: ['Ease of Use', 'Quality of Support', 'Ease of Doing Business With', 'Highest User Adoption'],
-            datasets: [{
-                label: 'Enable.com User Rating',
-                data: [9.2, 9.5, 9.6, 9.1], 
-                backgroundColor: '#a05195',
-                borderColor: '#665191',
-                borderWidth: 1
-            }, {
-                label: 'Common Competitor Pain Points',
-                data: [6.5, 6.8, 7.1, 7.5], 
-                backgroundColor: '#ff7c43',
-                borderColor: '#f95d6a',
-                borderWidth: 1
-            }]
-        };
         new Chart(competitiveEdgeCtx, {
             type: 'bar',
-            data: competitiveEdgeData,
-            options: { ...commonChartOptions, indexAxis: 'y' }
+            data: {
+                labels: ['Ease of Use', 'Quality of Support', 'Ease of Doing Business With', 'User Adoption'],
+                datasets: [{
+                    label: 'Enable.com Strengths',
+                    data: [9.2, 9.5, 9.6, 9.1], 
+                    backgroundColor: 'rgba(14, 165, 233, 0.8)', // sky-500
+                    borderColor: 'rgba(3, 105, 161, 1)', // sky-700
+                    borderWidth: 2
+                }, {
+                    label: 'Competitor Pain Points',
+                    data: [6.5, 6.8, 7.1, 7.5], 
+                    backgroundColor: 'rgba(100, 116, 139, 0.7)', // slate-500
+                    borderColor: 'rgba(51, 65, 85, 1)', // slate-700
+                    borderWidth: 2
+                }]
+            },
+            options: { 
+                ...commonChartOptions, 
+                indexAxis: 'y',
+                scales: {
+                    x: {
+                        beginAtZero: true,
+                        max: 10,
+                        ticks: {
+                            color: '#475569',
+                            font: { family: 'Inter' }
+                        },
+                        grid: {
+                            color: '#e2e8f0'
+                        }
+                    },
+                    y: {
+                        ticks: {
+                            color: '#334155',
+                            font: { family: 'Inter', size: 12, weight: '600' }
+                        },
+                        grid: {
+                            display: false
+                        }
+                    }
+                }
+            }
         });
         
         const g2ReviewsCtx = document.getElementById('g2ReviewsChart').getContext('2d');
-        const g2ReviewsData = {
-            labels: ['5 Stars', '4 Stars', '3 Stars & Below'],
-            datasets: [{
-                data: [68, 27, 5],
-                backgroundColor: ['#665191', '#a05195', '#d45087'],
-                hoverOffset: 4
-            }]
-        };
         new Chart(g2ReviewsCtx, {
             type: 'doughnut',
-            data: g2ReviewsData,
+            data: {
+                labels: ['5 Stars', '4 Stars', '3 Stars & Below'],
+                datasets: [{
+                    label: 'G2 Review Distribution',
+                    data: [68, 27, 5],
+                    backgroundColor: [
+                        'rgba(2, 132, 199, 0.9)', // sky-600
+                        'rgba(56, 189, 248, 0.8)', // sky-400
+                        'rgba(186, 230, 253, 0.8)'  // sky-200
+                    ],
+                    borderColor: '#f8fafc', // slate-50
+                    hoverOffset: 8,
+                    borderWidth: 3,
+                }]
+            },
             options: {
                 responsive: true,
                 maintainAspectRatio: false,
@@ -506,11 +425,13 @@
                      legend: {
                         position: 'bottom',
                         labels: {
-                            font: { size: 12, family: 'Inter' },
-                            color: '#4A5568'
+                            padding: 20,
+                            font: { size: 14, family: 'Inter', weight: '600' },
+                            color: '#334155'
                         }
                     },
                     tooltip: {
+                         ...commonChartOptions.plugins.tooltip,
                          callbacks: {
                             title: tooltipTitleCallback,
                             label: function(context) {
@@ -527,65 +448,6 @@
                     }
                 }
             }
-        });
-
-        const costMetricsCtx = document.getElementById('costMetricsChart').getContext('2d');
-        const costMetricsData = {
-            labels: [
-                wrapText('Cost per Lead (CPL)', 16),
-                wrapText('Cost per Opportunity (CPO)', 16),
-                wrapText('Cost per Closed-Won (CPC/W)', 16)
-            ],
-            datasets: [
-                {
-                    label: 'FY24',
-                    data: [100, 500, 2000],
-                    backgroundColor: '#2f4b7c',
-                    borderColor: '#003f5c',
-                    borderWidth: 1
-                },
-                {
-                    label: 'FY26 Q1',
-                    data: [150, 750, 3000],
-                    backgroundColor: '#ff7c43',
-                    borderColor: '#f95d6a',
-                    borderWidth: 1
-                }
-            ]
-        };
-        new Chart(costMetricsCtx, {
-            type: 'bar',
-            data: costMetricsData,
-            options: { ...commonChartOptions, scales: { x: { ...commonChartOptions.scales.x, title: { display: true, text: 'Cost in $' } } } }
-        });
-
-        const conversionRatesCtx = document.getElementById('conversionRatesChart').getContext('2d');
-        const conversionRatesData = {
-            labels: [
-                wrapText('MQL to SAL Conversion', 16),
-                wrapText('SAL to Opportunity Conversion', 16)
-            ],
-            datasets: [
-                {
-                    label: 'FY24',
-                    data: [15, 30],
-                    backgroundColor: '#2f4b7c',
-                    borderColor: '#003f5c',
-                    borderWidth: 1
-                },
-                {
-                    label: 'FY26 Q1',
-                    data: [10, 25],
-                    backgroundColor: '#ff7c43',
-                    borderColor: '#f95d6a',
-                    borderWidth: 1
-                }
-            ]
-        };
-        new Chart(conversionRatesCtx, {
-            type: 'bar',
-            data: conversionRatesData,
-            options: { ...commonChartOptions, scales: { y: { ...commonChartOptions.scales.y, ticks: { callback: function(value) { return value + '%'; } }, title: { display: true, text: 'Conversion Rate %' } } } }
         });
 
     </script>

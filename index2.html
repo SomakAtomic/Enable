@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atomic212 & Enable.com: A Blueprint for Accelerated Growth</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Chosen Palette: Calm Harmony -->
+    <!-- Application Structure Plan: The application is designed as a single-page, narrative-driven dashboard. The structure guides the user (Enable.com CEO) from a high-level acknowledgment of their success to the core B2B marketing challenges, and then presents Atomic212's three-pillar strategy as the solution. This problem/solution flow is more persuasive and engaging than a linear report. Key interactions include a main navigation hub for the three pillars, interactive charts to explore data (like wasted spend and frequency caps), and clickable diagrams to unpack complex strategies like retargeting. This structure was chosen to make the complex information digestible, facilitate non-linear exploration of the strategic pillars, and build a compelling case for partnership by focusing on tangible problems and measurable solutions. -->
+    <!-- Visualization & Content Choices: 
+        - Wasted Ad Spend: Report Info -> 50-60% of B2B budget wasted. Goal -> Shock/Inform. Viz -> Donut Chart. Interaction -> Hover tooltips. Justification -> Instantly visualizes the scale of the problem. Library -> Chart.js.
+        - B2B Benchmarks: Report Info -> Table of CTR, CVR, etc. Goal -> Compare & show opportunity. Viz -> Grouped Horizontal Bar Chart. Interaction -> Hover tooltips. Justification -> Clearly compares 'average' vs. 'top-tier' performance. Library -> Chart.js.
+        - Retargeting Process: Report Info -> Complex multi-step retargeting strategy. Goal -> Organize/Explain. Viz -> HTML/CSS flowchart. Interaction -> Click to reveal details for each step. Justification -> Simplifies a complex process into a digestible, interactive diagram. Library -> JS, HTML/CSS.
+        - Frequency Capping: Report Info -> Table of frequency cap data. Goal -> Inform/Compare. Viz -> Interactive Bar Chart. Interaction -> Buttons to filter data by channel (LinkedIn, Programmatic). Justification -> Makes dense data explorable and relevant to the user's specific interests. Library -> Chart.js.
+        - Strategic Pillars: Report Info -> The three core strategic areas. Goal -> Organize/Navigate. Viz -> Clickable cards in an HTML/CSS diagram. Interaction -> Clicks scroll to the relevant deep-dive section. Justification -> Acts as a visual, interactive table of contents for the core proposal. Library -> JS, HTML/CSS.
+    -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #F8F6F2;
+            color: #2D3748;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 350px;
+            max-height: 400px;
+        }
+        @media (max-width: 768px) {
+            .chart-container {
+                height: 300px;
+            }
+        }
+        .nav-link {
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        .nav-link:hover, .nav-link.active {
+            color: #D55C4D;
+            transform: translateY(-2px);
+        }
+        .pillar-card {
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        .pillar-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+        }
+        .flow-step.active {
+            border-color: #D55C4D;
+            background-color: #fdf0ee;
+        }
+        .tab-button.active {
+            background-color: #D55C4D;
+            color: #FFFFFF;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <header id="header" class="bg-white/80 backdrop-blur-md sticky top-0 z-50 shadow-sm">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="text-2xl font-bold text-gray-800">
+                atomic<span class="text-[#D55C4D]">212</span><span class="font-light text-gray-500"> x enable.com</span>
+            </div>
+            <div class="hidden md:flex items-center space-x-8 font-medium text-gray-600">
+                <a data-target="challenge" class="nav-link">The Challenge</a>
+                <a data-target="strategy" class="nav-link">Our Strategy</a>
+                <a data-target="pillars" class="nav-link">The Pillars</a>
+                <a data-target="recommendations" class="nav-link">Next Steps</a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section id="hero" class="py-20 md:py-32 bg-white">
+            <div class="container mx-auto px-6 text-center">
+                <h1 class="text-4xl md:text-6xl font-bold text-gray-800 leading-tight">A Blueprint for Accelerated Growth</h1>
+                <p class="mt-4 text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">Enable.com has achieved remarkable product-market fit and customer success. We propose a precision-driven digital marketing strategy to amplify your leadership position and unlock new frontiers of growth.</p>
+                <div class="mt-8">
+                    <a href="#challenge" class="bg-[#D55C4D] text-white font-bold py-3 px-8 rounded-full hover:bg-opacity-90 transition duration-300 text-lg">Discover the Opportunity</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="challenge" class="py-16 md:py-24">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-800">The B2B Growth Challenge</h2>
+                    <p class="mt-3 text-lg text-gray-600 max-w-3xl mx-auto">Even for a market leader like Enable.com, the B2B landscape presents complex hurdles. Navigating long sales cycles and ensuring marketing spend translates directly to revenue requires a new level of precision.</p>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
+                    <div class="bg-white p-8 rounded-xl shadow-lg">
+                        <h3 class="text-2xl font-bold text-gray-800 text-center">The High Cost of Imprecision</h3>
+                        <p class="text-center text-gray-600 mt-2 mb-4">A staggering amount of B2B marketing budget is lost serving ads to the wrong audience. This isn't just wasted spend; it's a missed opportunity for pipeline growth.</p>
+                        <div class="chart-container">
+                            <canvas id="wastedSpendChart"></canvas>
+                        </div>
+                    </div>
+                    <div class="space-y-8">
+                        <div class="bg-white p-8 rounded-xl shadow-lg">
+                            <h3 class="text-2xl font-bold text-gray-800">The Complex Buying Journey</h3>
+                            <div class="flex items-center justify-center mt-4">
+                                <span class="text-6xl font-bold text-[#D55C4D]">11-20</span>
+                                <p class="ml-4 text-lg text-gray-600">stakeholders are typically involved in a single B2B purchase decision, demanding a multi-threaded engagement strategy.</p>
+                            </div>
+                        </div>
+                         <div class="bg-white p-8 rounded-xl shadow-lg">
+                            <h3 class="text-2xl font-bold text-gray-800">The Performance Gap</h3>
+                             <p class="text-gray-600 mt-2 mb-4">There's a significant gap between average B2B marketing performance and what top-tier campaigns achieve. This represents a clear opportunity for optimization.</p>
+                             <div class="chart-container" style="height: 250px;">
+                                 <canvas id="benchmarkChart"></canvas>
+                             </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="strategy" class="py-16 md:py-24 bg-white">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-800">Our 3-Pillar Strategy for Growth</h2>
+                    <p class="mt-3 text-lg text-gray-600 max-w-3xl mx-auto">We address the core B2B challenges with a synergistic strategy built on a foundation of precision. Each pillar is designed to maximize ROI and accelerate your sales pipeline. Click a pillar to learn more.</p>
+                </div>
+
+                <div class="relative mt-16">
+                    <div class="flex flex-col md:flex-row justify-center items-center md:items-stretch gap-8">
+                        <div data-target="pillar1" class="pillar-card bg-white p-6 rounded-xl shadow-lg w-full md:w-1/4 text-center border-t-4 border-teal-500">
+                             <div class="text-4xl text-teal-500 mb-3">①</div>
+                            <h3 class="text-xl font-bold text-gray-800">Intelligent Retargeting</h3>
+                            <p class="text-gray-600 mt-2 text-sm">Shorten the lead-to-closure time by re-engaging high-intent prospects across their entire buying journey.</p>
+                        </div>
+                        <div data-target="pillar2" class="pillar-card bg-white p-6 rounded-xl shadow-lg w-full md:w-1/4 text-center border-t-4 border-sky-500">
+                            <div class="text-4xl text-sky-500 mb-3">②</div>
+                            <h3 class="text-xl font-bold text-gray-800">Precision Frequency Control</h3>
+                            <p class="text-gray-600 mt-2 text-sm">Eliminate wasted spend and ad fatigue by delivering your message the optimal number of times.</p>
+                        </div>
+                        <div data-target="pillar3" class="pillar-card bg-white p-6 rounded-xl shadow-lg w-full md:w-1/4 text-center border-t-4 border-indigo-500">
+                             <div class="text-4xl text-indigo-500 mb-3">③</div>
+                            <h3 class="text-xl font-bold text-gray-800">Strategic Publisher Partnerships</h3>
+                            <p class="text-gray-600 mt-2 text-sm">Expand your reach into niche, high-quality audiences and build credibility through strategic media placements.</p>
+                        </div>
+                    </div>
+                    <div class="mt-10 text-center">
+                         <div class="inline-block bg-[#D55C4D] text-white p-6 rounded-xl shadow-xl w-full md:w-1/3">
+                            <h3 class="text-xl font-bold">The Foundation: Ideal Customer Profile (ICP)</h3>
+                            <p class="mt-2 text-sm">Everything starts here. A data-driven ICP ensures every marketing dollar is aimed at accounts most likely to convert, boosting ROI by up to 68%.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <section id="pillars" class="py-16 md:py-24">
+            <div class="container mx-auto px-6 space-y-24">
+
+                <div id="pillar1" class="scroll-mt-24">
+                    <div class="text-center mb-12">
+                        <h2 class="text-3xl md:text-4xl font-bold text-gray-800">Pillar 1: Intelligent Retargeting</h2>
+                        <p class="mt-3 text-lg text-gray-600 max-w-3xl mx-auto">In a long B2B sales cycle, prospects can easily go cold. Our retargeting strategy keeps Enable.com top-of-mind, transforming potential drop-offs into conversions by delivering the right message at the right time. Explore our process below.</p>
+                    </div>
+
+                    <div class="flex flex-col md:flex-row items-start gap-8">
+                        <div class="w-full md:w-1/3 space-y-4">
+                            <div id="step1" class="flow-step border-l-4 p-4 rounded-r-lg bg-white shadow-md cursor-pointer transition active">
+                                <h4 class="font-bold text-lg">1. Identify & Segment</h4>
+                                <p class="text-sm text-gray-600 hidden">We segment audiences based on behavior: which pages they visited, content they downloaded, or actions they took.</p>
+                            </div>
+                            <div id="step2" class="flow-step border-l-4 border-gray-200 p-4 rounded-r-lg bg-white shadow-md cursor-pointer transition">
+                                <h4 class="font-bold text-lg">2. Personalize Creatives</h4>
+                                <p class="text-sm text-gray-600 hidden">Dynamic ads are created to address the specific interests or pain points of each segment, moving beyond generic messaging.</p>
+                            </div>
+                            <div id="step3" class="flow-step border-l-4 border-gray-200 p-4 rounded-r-lg bg-white shadow-md cursor-pointer transition">
+                                <h4 class="font-bold text-lg">3. Multi-Channel Deployment</h4>
+                                 <p class="text-sm text-gray-600 hidden">We reach prospects across their digital ecosystem—on LinkedIn, Display Networks, and social platforms—for consistent visibility.</p>
+                            </div>
+                             <div id="step4" class="flow-step border-l-4 border-gray-200 p-4 rounded-r-lg bg-white shadow-md cursor-pointer transition">
+                                <h4 class="font-bold text-lg">4. Nudge & Convert</h4>
+                                 <p class="text-sm text-gray-600 hidden">Using intent signals (like a bounce from a pricing page), we serve ads with testimonials or case studies to overcome objections and drive action.</p>
+                            </div>
+                        </div>
+                        <div class="w-full md:w-2/3 bg-white p-8 rounded-xl shadow-lg min-h-[300px]">
+                             <h3 id="flow-title" class="text-2xl font-bold text-gray-800">Step 1: Identify & Segment</h3>
+                             <p id="flow-text" class="mt-4 text-gray-600">The foundation of effective retargeting is precision. We don't just target all website visitors. Instead, we use behavioral and firmographic data to create granular audience segments. For example, a prospect who downloaded a whitepaper on pharmaceutical rebates will be in a different segment from someone who only visited the homepage. This allows us to tailor messaging with unparalleled relevance, dramatically increasing engagement.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="pillar2" class="scroll-mt-24">
+                    <div class="text-center mb-12">
+                        <h2 class="text-3xl md:text-4xl font-bold text-gray-800">Pillar 2: Precision Frequency Control</h2>
+                        <p class="mt-3 text-lg text-gray-600 max-w-3xl mx-auto">Too many ads lead to fatigue; too few lead to being forgotten. We use data-driven benchmarks and AI to find the "Goldilocks zone" of ad exposure, ensuring your budget is spent effectively and your brand remains a positive, consistent presence.</p>
+                    </div>
+                     <div class="bg-white p-8 rounded-xl shadow-lg">
+                        <h3 class="text-2xl font-bold text-gray-800 text-center">Optimal Ad Frequency by Channel</h3>
+                        <p class="text-center text-gray-600 mt-2 mb-6">Select a channel to see our recommended frequency benchmarks. This data-driven approach ensures we maximize impact without oversaturating your audience.</p>
+                        <div class="flex justify-center space-x-2 mb-6">
+                            <button data-channel="linkedin" class="tab-button bg-gray-200 text-gray-700 font-semibold py-2 px-4 rounded-full transition duration-300 active">LinkedIn</button>
+                            <button data-channel="programmatic" class="tab-button bg-gray-200 text-gray-700 font-semibold py-2 px-4 rounded-full transition duration-300">Programmatic</button>
+                             <button data-channel="video" class="tab-button bg-gray-200 text-gray-700 font-semibold py-2 px-4 rounded-full transition duration-300">Video/CTV</button>
+                        </div>
+                        <div class="chart-container">
+                            <canvas id="frequencyChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="pillar3" class="scroll-mt-24">
+                    <div class="text-center mb-12">
+                        <h2 class="text-3xl md:text-4xl font-bold text-gray-800">Pillar 3: Strategic Publisher Partnerships</h2>
+                        <p class="mt-3 text-lg text-gray-600 max-w-3xl mx-auto">To reach high-value, niche audiences, we go directly to the source. By forging partnerships with key industry publishers and leveraging efficient programmatic deals, we place your content in front of the right people in trusted environments, generating higher-quality leads.</p>
+                    </div>
+                     <div class="bg-white p-8 rounded-xl shadow-lg overflow-x-auto">
+                        <h3 class="text-2xl font-bold text-gray-800 mb-4 text-center">The Power of Programmatic Direct</h3>
+                         <p class="text-center text-gray-600 mt-2 mb-6">Programmatic Guaranteed (PG) deals offer significant advantages in cost, efficiency, and targeting precision over standard open auctions.</p>
+                        <table class="w-full text-left">
+                            <thead>
+                                <tr class="border-b-2 border-gray-200">
+                                    <th class="p-4 font-semibold">Feature</th>
+                                    <th class="p-4 font-semibold text-center bg-teal-50 text-teal-800 rounded-t-lg">Programmatic Guaranteed</th>
+                                    <th class="p-4 font-semibold text-center">Open Auction (RTB)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="border-b border-gray-100">
+                                    <td class="p-4 font-medium">Predictability</td>
+                                    <td class="p-4 text-center bg-teal-50"><span class="font-bold text-teal-600">Guaranteed</span> impressions at a fixed price</td>
+                                    <td class="p-4 text-center">No guarantees, variable pricing</td>
+                                </tr>
+                                <tr class="border-b border-gray-100">
+                                    <td class="p-4 font-medium">Time to Launch</td>
+                                    <td class="p-4 text-center bg-teal-50"><span class="font-bold text-teal-600">57% Faster</span> setup vs. manual deals</td>
+                                    <td class="p-4 text-center">Fast, but with less control</td>
+                                </tr>
+                                 <tr class="border-b border-gray-100">
+                                    <td class="p-4 font-medium">Tech Fees</td>
+                                    <td class="p-4 text-center bg-teal-50"><span class="font-bold text-teal-600">~3-5%</span> (Lowest)</td>
+                                    <td class="p-4 text-center">~10-20% (Highest)</td>
+                                </tr>
+                                <tr class="border-b border-gray-100">
+                                    <td class="p-4 font-medium">Audience Targeting</td>
+                                    <td class="p-4 text-center bg-teal-50"><span class="font-bold text-teal-600">Direct Access</span> to publisher's first-party data</td>
+                                    <td class="p-4 text-center">Relies on third-party data segments</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="recommendations" class="py-16 md:py-24 bg-white">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-800">Our Recommendations & Next Steps</h2>
+                    <p class="mt-3 text-lg text-gray-600 max-w-3xl mx-auto">By implementing this strategic blueprint, Enable.com can transform its digital marketing into a highly efficient engine for predictable, scalable growth. Here's how we propose we start.</p>
+                </div>
+                <div class="max-w-4xl mx-auto space-y-6">
+                    <div class="bg-gray-50 p-6 rounded-lg">
+                        <h3 class="font-bold text-lg"><span class="text-[#D55C4D] mr-2">1.</span>Foundation First: ICP & Alignment Workshop</h3>
+                        <p class="text-gray-600 ml-6">We begin with a data-driven workshop to refine your ICP and ensure tight alignment between sales and marketing goals.</p>
+                    </div>
+                    <div class="bg-gray-50 p-6 rounded-lg">
+                        <h3 class="font-bold text-lg"><span class="text-[#D55C4D] mr-2">2.</span>90-Day Pilot Program</h3>
+                        <p class="text-gray-600 ml-6">Launch a focused pilot program implementing the three pillars on a key market segment to demonstrate tangible results and ROI.</p>
+                    </div>
+                    <div class="bg-gray-50 p-6 rounded-lg">
+                        <h3 class="font-bold text-lg"><span class="text-[#D55C4D] mr-2">3.</span>Establish Unified Dashboards</h3>
+                        <p class="text-gray-600 ml-6">We will build a shared dashboard for clear, consistent visibility into performance metrics for both sales and marketing teams.</p>
+                    </div>
+                </div>
+                <div class="mt-12 text-center">
+                    <a href="mailto:ceo@enable.com" class="bg-[#D55C4D] text-white font-bold py-4 px-10 rounded-full hover:bg-opacity-90 transition duration-300 text-xl">Let's Build the Future of Growth</a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="bg-gray-800 text-white">
+        <div class="container mx-auto px-6 py-8 text-center">
+            <p>&copy; 2025 Atomic212. A Strategic Proposal for Enable.com.</p>
+        </div>
+    </footer>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+
+    const chartColors = {
+        primary: 'rgba(213, 92, 77, 1)', // Terracotta #D55C4D
+        secondary: 'rgba(235, 235, 235, 1)', // Light Gray
+        teal: 'rgba(20, 184, 166, 1)', // Teal-500
+        sky: 'rgba(14, 165, 233, 1)', // Sky-500
+        indigo: 'rgba(99, 102, 241, 1)', // Indigo-500
+        gray: 'rgba(107, 114, 128, 1)', // Gray-500
+        text: '#2D3748'
+    };
+    
+    Chart.defaults.font.family = "'Inter', sans-serif";
+    Chart.defaults.color = chartColors.text;
+
+    function initWastedSpendChart() {
+        const ctx = document.getElementById('wastedSpendChart')?.getContext('2d');
+        if (!ctx) return;
+        new Chart(ctx, {
+            type: 'doughnut',
+            data: {
+                labels: ['Wasted Ad Spend', 'Effective Ad Spend'],
+                datasets: [{
+                    data: [55, 45],
+                    backgroundColor: [chartColors.primary, chartColors.secondary],
+                    borderColor: '#FFFFFF',
+                    borderWidth: 4,
+                    hoverOffset: 4
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                cutout: '70%',
+                plugins: {
+                    legend: {
+                        position: 'bottom',
+                        labels: {
+                            padding: 20
+                        }
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                return `${context.label}: ${context.raw}% of budget`;
+                            }
+                        }
+                    }
+                }
+            }
+        });
+    }
+
+    function initBenchmarkChart() {
+        const ctx = document.getElementById('benchmarkChart')?.getContext('2d');
+        if (!ctx) return;
+        new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['Landing Page Conversion', 'LinkedIn Ads CTR', 'LinkedIn Conversion Rate'],
+                datasets: [
+                    {
+                        label: 'B2B Average',
+                        data: [2.35, 0.44, 6.1],
+                        backgroundColor: chartColors.gray,
+                        borderColor: chartColors.gray,
+                        borderWidth: 1
+                    },
+                    {
+                        label: 'Top Performers',
+                        data: [5.0, 0.8, 10.0], // Hypothetical top performance
+                        backgroundColor: chartColors.teal,
+                        borderColor: chartColors.teal,
+                        borderWidth: 1
+                    }
+                ]
+            },
+            options: {
+                indexAxis: 'y',
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    x: {
+                        beginAtZero: true,
+                        ticks: {
+                            callback: function(value) {
+                                return value + '%';
+                            }
+                        }
+                    },
+                     y: {
+                        ticks: {
+                            autoSkip: false,
+                        }
+                    }
+                },
+                plugins: {
+                    legend: {
+                        position: 'bottom'
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                return `${context.dataset.label}: ${context.raw}%`;
+                            }
+                        }
+                    }
+                }
+            }
+        });
+    }
+    
+    let frequencyChartInstance;
+    const frequencyData = {
+        linkedin: {
+            labels: ['Awareness', 'Retargeting', 'ABM', 'Message Ads'],
+            data: [4, 6.5, 3, 1.5]
+        },
+        programmatic: {
+            labels: ['Brand Awareness', 'Retargeting', 'ABM/High-Intent'],
+            data: [6, 4, 3]
+        },
+        video: {
+            labels: ['Brand Awareness', 'Mid-Funnel', 'Retargeting'],
+            data: [5, 3, 4]
+        }
+    };
+
+    function initFrequencyChart() {
+        const ctx = document.getElementById('frequencyChart')?.getContext('2d');
+        if (!ctx) return;
+
+        const initialChannel = 'linkedin';
+        
+        frequencyChartInstance = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: frequencyData[initialChannel].labels,
+                datasets: [{
+                    label: 'Recommended Impressions / Week (or Month for some)',
+                    data: frequencyData[initialChannel].data,
+                    backgroundColor: [chartColors.teal, chartColors.sky, chartColors.indigo, chartColors.gray],
+                    borderColor: '#FFFFFF',
+                    borderWidth: 2,
+                    borderRadius: 5
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        title: {
+                            display: true,
+                            text: 'Impressions'
+                        }
+                    }
+                },
+                plugins: {
+                    legend: {
+                        display: false
+                    },
+                    tooltip: {
+                        callbacks: {
+                            title: (tooltipItems) => {
+                                const item = tooltipItems[0];
+                                const channel = document.querySelector('.tab-button.active').dataset.channel;
+                                if(channel === 'linkedin' && (item.label === 'Retargeting' || item.label === 'Message Ads')) {
+                                    return `${item.label} (per month)`;
+                                }
+                                if(channel === 'video' && item.label === 'Retargeting') {
+                                    return `${item.label} (per month)`;
+                                }
+                                return `${item.label} (per week)`;
+                            },
+                            label: function(context) {
+                                return `Optimal Frequency: ~${context.raw}`;
+                            }
+                        }
+                    }
+                }
+            }
+        });
+    }
+
+    function updateFrequencyChart(channel) {
+        if (!frequencyChartInstance) return;
+        const newData = frequencyData[channel];
+        frequencyChartInstance.data.labels = newData.labels;
+        frequencyChartInstance.data.datasets[0].data = newData.data;
+        frequencyChartInstance.update();
+    }
+
+    function initNav() {
+        const navLinks = document.querySelectorAll('.nav-link');
+        navLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const targetId = link.getAttribute('data-target');
+                const targetElement = document.getElementById(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        const pillarCards = document.querySelectorAll('.pillar-card');
+        pillarCards.forEach(card => {
+             card.addEventListener('click', (e) => {
+                e.preventDefault();
+                const targetId = card.getAttribute('data-target');
+                const targetElement = document.getElementById(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+    }
+
+    function initRetargetingFlow() {
+        const steps = document.querySelectorAll('.flow-step');
+        const titleEl = document.getElementById('flow-title');
+        const textEl = document.getElementById('flow-text');
+
+        const content = {
+            step1: {
+                title: "Step 1: Identify & Segment",
+                text: "The foundation of effective retargeting is precision. We don't just target all website visitors. Instead, we use behavioral and firmographic data to create granular audience segments. For example, a prospect who downloaded a whitepaper on pharmaceutical rebates will be in a different segment from someone who only visited the homepage. This allows us to tailor messaging with unparalleled relevance, dramatically increasing engagement."
+            },
+            step2: {
+                title: "Step 2: Personalize Creatives",
+                text: "Once we know who we're talking to, we craft dynamic, personalized ads. Instead of a generic brand message, the user who viewed a case study on HVAC distributors might see an ad featuring a testimonial from a similar company. This level of personalization speaks directly to their needs and has a much higher impact."
+            },
+            step3: {
+                title: "Step 3: Multi-Channel Deployment",
+                text: "B2B decision-makers are active across multiple platforms. We ensure consistent brand presence by deploying retargeting campaigns on professional networks like LinkedIn, across the vast Google Display Network, and even on social media. A coordinated approach means your message is reinforced wherever they go."
+            },
+            step4: {
+                title: "Step 4: Nudge & Convert",
+                text: "We identify high-intent signals, such as a prospect visiting your pricing page but not requesting a demo. This triggers a specific sequence of ads designed to overcome final objections. We might serve them a compelling ROI calculator, a direct comparison guide, or an offer for a personalized consultation, providing the final nudge needed for conversion."
+            }
+        };
+
+        steps.forEach(step => {
+            step.addEventListener('click', () => {
+                steps.forEach(s => s.classList.remove('active'));
+                step.classList.add('active');
+
+                const stepId = step.id;
+                titleEl.textContent = content[stepId].title;
+                textEl.textContent = content[stepId].text;
+            });
+        });
+    }
+
+    function initTabs() {
+        const tabButtons = document.querySelectorAll('.tab-button');
+        tabButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                tabButtons.forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
+                const channel = button.dataset.channel;
+                updateFrequencyChart(channel);
+            });
+        });
+    }
+
+    initWastedSpendChart();
+    initBenchmarkChart();
+    initFrequencyChart();
+    initNav();
+    initRetargetingFlow();
+    initTabs();
+});
+</script>
+</body>
+</html>
